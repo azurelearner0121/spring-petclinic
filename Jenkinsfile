@@ -7,7 +7,7 @@ pipeline {
     steps {
       script {
      sh 'echo $BRANCH_NAME'
-      if (env.BRANCH_NAME == 'main') {
+      if (env.BRANCH_NAME != 'main') {
         echo 'In main'
       }
       else {
@@ -16,6 +16,13 @@ pipeline {
       }
     }
   }
+    stage('CheckoutBranch'){
+    steps{
+     echo 'Checking out'
+      sh 'git checkout ${BRANCH_NAME}'
+         
+    }
+    }
     stage('BuildCode'){
     steps{
      echo 'In build step'
