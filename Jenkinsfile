@@ -18,12 +18,13 @@ pipeline {
         sh "mvn sonar:sonar"
          
     } // substep
-    stage("Quality gate") {
+   
+    } //steps
+       } //stage
+     stage("Quality gate") {
             steps {
                 waitForQualityGate abortPipeline: true
             }
         }
-    } //steps
-       } //stage
     } //stages
   } //pipeline
