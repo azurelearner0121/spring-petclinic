@@ -1,7 +1,20 @@
 pipeline {
   agent { label 'dev-agent'}
+  
  
   stages {
+    stage ('CheckBranch') {
+    steps {
+     sh 'echo $BRANCH_NAME'
+      if (env.BRANCH_NAME == 'main') {
+        echo 'In main'
+      }
+      else {
+        echo 'I am in $BRANCH_NAME'
+      }
+      
+    }
+  }
     stage('BuildCode'){
     steps{
      echo 'In build step'
