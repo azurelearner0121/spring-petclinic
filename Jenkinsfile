@@ -5,6 +5,7 @@ pipeline {
   stages {
     stage ('CheckBranch') {
     steps {
+      script {
      sh 'echo $BRANCH_NAME'
       if (env.BRANCH_NAME == 'main') {
         echo 'In main'
@@ -12,7 +13,7 @@ pipeline {
       else {
         echo 'I am in $BRANCH_NAME'
       }
-      
+      }
     }
   }
     stage('BuildCode'){
