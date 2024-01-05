@@ -22,4 +22,5 @@ jobs:
         run: 
           pwd
           ls -al
-          ./mvnw -B package
+          cd src
+          #./mvnw -B package
