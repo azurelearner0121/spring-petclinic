@@ -23,4 +23,5 @@ jobs:
           pwd
           ls -al
           cd src
+          ls -al
           #./mvnw -B package
